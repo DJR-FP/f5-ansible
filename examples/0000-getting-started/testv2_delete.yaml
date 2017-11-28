@@ -12,7 +12,7 @@
             slow_ramp_time: "120"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
-			state: "absent"
+			state: absent
             monitor_type: and_list
             monitors: http
         delegate_to: localhost
