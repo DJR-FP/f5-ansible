@@ -12,8 +12,8 @@
             slow_ramp_time: "120"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
-             monitor_type: single
-             monitors:http
+            monitor_type: single
+            monitors: http
         delegate_to: localhost
 
       - name: Create node1
