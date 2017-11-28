@@ -4,7 +4,7 @@
 
   tasks:
         - name: Delete a VIP
-        bigip_virtual_server:
+          bigip_virtual_server:
             description: "FP_vip"
             destination: "10.211.0.36"
             password: "{{ bigip_password }}"
