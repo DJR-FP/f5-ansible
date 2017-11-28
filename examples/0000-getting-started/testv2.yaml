@@ -10,7 +10,7 @@
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
             slow_ramp_time: "120"
-            monitor_type: single
+            monitor_type: "single"
             monitors:
                 - http
             user: "{{ bigip_username }}"
