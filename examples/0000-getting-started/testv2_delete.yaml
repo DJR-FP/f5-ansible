@@ -36,7 +36,6 @@
 
       - name: Create node1
         bigip_node:
-            host: "10.101.0.36"
             name: "FP_node-1"
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
@@ -47,7 +46,6 @@
 
       - name: Create node2
         bigip_node:
-            host: "10.101.0.37"
             name: "FP_node-2"
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
