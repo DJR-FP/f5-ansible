@@ -16,6 +16,19 @@
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
 
+- name: Set a single monitor (without enforcement)
+  bigip_pool:
+    server: FP_vip
+    user: "{{ bigip_username }}"
+    password: "{{ bigip_password }}"
+    state: present
+    name: FP_pool
+    partition: Common
+    monitors:
+      - http
+  delegate_to: localhost
+
+
       - name: Create node1
         bigip_node:
             host: "10.101.0.36"
