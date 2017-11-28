@@ -1,5 +1,5 @@
 ---
-localhost: "172.16.100.35"
+ansible_host: "172.16.100.35"
 bigip_username: "donald"
 bigip_password: "ross"
 bigip_port: 443
