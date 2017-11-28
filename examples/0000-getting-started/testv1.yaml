@@ -10,7 +10,7 @@
             lb_method: "ratio_member"
             name: "web"
             password: "{{ bigip_password }}"
-            server: "{{ bigips }}"
+            server: "{{ inventory_hostname }}"
             slow_ramp_time: "120"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
@@ -21,7 +21,7 @@
             host: "10.10.10.10"
             name: "node-1"
             password: "{{ bigip_password }}"
-            server: "{{ bigips }}"
+            server: "{{ inventory_hostname }}"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
@@ -31,7 +31,7 @@
             host: "10.10.10.20"
             name: "node-2"
             password: "{{ bigip_password }}"
-            server: "{{ bigips }}"
+            server: "{{ inventory_hostname }}"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
@@ -44,7 +44,7 @@
             password: "{{ bigip_password }}"
             pool: "web"
             port: "80"
-            server: "{{ bigips }}"
+            server: "{{ inventory_hostname }}"
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
@@ -62,7 +62,7 @@
             name: "vip-1"
             pool: "web"
             port: "80"
-            server: "{{ bigips }}"
+            server: "{{ inventory_hostname }}"
             snat: "Automap"
             user: "{{ bigip_username }}"
             all_profiles:
