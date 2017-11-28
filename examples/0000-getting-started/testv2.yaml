@@ -1,4 +1,4 @@
-- name: Create a VIP, pool, pool members and nodes
+- name: Create a VIP, pool, pool members, monitor and nodes
   hosts: bigips
   connection: local
 
