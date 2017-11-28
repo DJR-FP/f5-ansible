@@ -1,1 +1,46 @@
+- name: Create a VIP, pool, add pool members
+  hosts: bigips
+  connection: local
 
+  tasks:
+      - name: Create a pool
+        bigip_pool:
+            lb_method: "round_robin"
+            name: "FP_pool"
+            password: "{{ bigip_password }}"
+            server: "{{ inventory_hostname }}"
+            slow_ramp_time: "120"
+            user: "{{ bigip_username }}"
+            validate_certs: "{{ validate_certs }}"
+        delegate_to: localhost
+ 
+      - name: Add nodes to pool
+        bigip_pool_member:
+            description: "webserver-1"
+            host: "{{ item.host }}"
+            password: "{{ bigip_password }}"
+            pool: "FP_pool"
+            port: "8081"
+            server: "{{ inventory_hostname }}"
+            user: "{{ bigip_username }}"
+            validate_certs: "{{ validate_certs }}"
+        delegate_to: localhost
+        with_items:
+            - host: "10.101.0.34"
+            - host: "10.101.0.35"
+
+      - name: Create a VIP
+        bigip_virtual_server:
+            description: "FP_vip"
+            destination: "10.211.0.35"
+            password: "{{ bigip_password }}"
+            name: "FP_vip"
+            pool: "FP_pool"
+            port: "8081"
+            server: "{{ inventory_hostname }}"
+            snat: "Automap"
+            user: "{{ bigip_username }}"
+            all_profiles:
+                - "http"
+            validate_certs: "{{ validate_certs }}"
+        delegate_to: localhost
