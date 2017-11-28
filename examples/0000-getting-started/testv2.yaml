@@ -10,6 +10,8 @@
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
             slow_ramp_time: "120"
+            monitors:
+                - http
             user: "{{ bigip_username }}"
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
