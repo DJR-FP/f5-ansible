@@ -16,7 +16,7 @@
 
       - name: Create node1
         bigip_node:
-            host: "10.101.0.34"
+            host: "10.101.0.36"
             name: "FP_node-1"
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
@@ -26,7 +26,7 @@
 
       - name: Create node2
         bigip_node:
-            host: "10.101.0.35"
+            host: "10.101.0.37"
             name: "FP_node-2"
             password: "{{ bigip_password }}"
             server: "{{ inventory_hostname }}"
@@ -47,15 +47,15 @@
             validate_certs: "{{ validate_certs }}"
         delegate_to: localhost
         with_items:
-            - host: "10.101.0.34"
+            - host: "10.101.0.36"
               name: "FP_node-1"
-            - host: "10.101.0.35"
+            - host: "10.101.0.37"
               name: "FP_node-2"
 
       - name: Create a VIP
         bigip_virtual_server:
             description: "FP_vip"
-            destination: "10.211.0.35"
+            destination: "10.211.0.36"
             password: "{{ bigip_password }}"
             name: "FP_vip"
             pool: "FP_pool"
