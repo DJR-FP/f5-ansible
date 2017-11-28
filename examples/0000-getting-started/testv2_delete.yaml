@@ -1,10 +1,6 @@
-- name: Delete a VIP, pool, pool members, monitor and nodes
-  hosts: bigips
-  connection: local
-
-  tasks:
+ tasks:
         - name: Delete a VIP
-          bigip_virtual_server:
+        bigip_virtual_server:
             description: "FP_vip"
             destination: "10.211.0.36"
             password: "{{ bigip_password }}"
@@ -55,3 +51,5 @@
             validate_certs: "{{ validate_certs }}"
             state: "absent"
         delegate_to: localhost
+
+
