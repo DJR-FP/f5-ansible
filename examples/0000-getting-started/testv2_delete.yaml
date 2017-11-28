@@ -55,5 +55,3 @@
             validate_certs: "{{ validate_certs }}"
             state: "absent"
         delegate_to: localhost
-
-k
