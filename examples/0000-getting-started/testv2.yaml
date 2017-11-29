@@ -61,7 +61,7 @@
             password: "{{ bigip_password }}"
             name: "FP_vip"
             pool: "FP_pool"
-            port: "80"
+            port: "8081"
             server: "{{ inventory_hostname }}"
             snat: "Automap"
             user: "{{ bigip_username }}"
