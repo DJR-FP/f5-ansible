@@ -1,12 +1,14 @@
 - name: Set the hostname of the BIG-IP
   hosts: bigips
   connection: local
-  
+
   tasks:
-  - name: Set the hostname of the BIG-IP
-    bigip_hostname:
-        hostname: bigip.ansible.test
-        password: "{{ bigip_password }}"
-        server: "{{ inventory_hostname }}"
-        user: "{{ bigip_username }}"
-     delegate_to: localhost
+      - name: Set the hostname of the BIG-IP
+        bigip_hostname:
+            hostname: bigip.ansible.test
+            password: "{{ bigip_password }}"
+            server: "{{ inventory_hostname }}"
+            user: "{{ bigip_username }}"
+            validate_certs: "{{ validate_certs }}"
+        delegate_to: localhost
+
