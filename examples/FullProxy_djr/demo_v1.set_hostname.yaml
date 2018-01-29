@@ -1,4 +1,4 @@
-- name: Set the hostname of the BIG-IP
+- name: Set the hostname of the BIG-IP, NTP
   hosts: bigips
   connection: local
 
