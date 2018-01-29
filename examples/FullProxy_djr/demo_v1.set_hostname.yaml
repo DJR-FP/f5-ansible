@@ -1,11 +1,10 @@
-
 - name: Set the hostname of the BIG-IP
   hosts: bigips
   connection: local
   
   bigip_hostname:
     hostname: bigip.ansible.test
-    password: secret
-    server: lb.mydomain.com
-    user: admin
+    password: "{{ bigip_password }}"
+    server: "{{ inventory_hostname }}"
+    user: "{{ bigip_username }}"
   delegate_to: localhost
