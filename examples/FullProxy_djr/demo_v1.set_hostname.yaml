@@ -3,7 +3,7 @@
   connection: local
   
   tasks:  
-    bigip_hostname:
+ - name: Set the hostname of the BIG-IP
         hostname: bigip.ansible.test
         password: "{{ bigip_password }}"
         server: "{{ inventory_hostname }}"
