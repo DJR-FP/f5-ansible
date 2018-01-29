@@ -1,0 +1,8 @@
+
+- name: Set the hostname of the BIG-IP
+  bigip_hostname:
+    hostname: bigip.localhost.localdomain
+    password: secret
+    server: lb.mydomain.com
+    user: admin
+  delegate_to: localhost
